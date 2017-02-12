@@ -1,0 +1,52 @@
+@mixin set-properties($properties) {
+  @each $prop, $value in $properties {
+    #{$prop}: $value;
+  }
+}
+
+@mixin create-item-types($settings) {
+  @each $type, $type-settings in $settings {
+
+    $head-settings: map-get($type-settings, 'head');
+    $data-settings: map-get($type-settings, 'data');
+
+    &--#{$type}-head {
+      @include set-properties($head-settings);
+    }
+
+    &--#{$type}-data {
+      @include set-properties($data-settings);
+    }
+  }
+}
+
+@mixin create-flex-items($items-map) {
+  $loop-count: 0;
+
+  &__item {
+    border: 1px solid #333;
+    padding: 1em;
+    flex: 1 0;
+
+    @each $breakpoint, $settings in $items-map {
+      @if ($breakpoint == '0px') {
+        @include create-item-types($settings);
+      } @else {
+        @media only screen and (min-width: $breakpoint) {
+          @include create-item-types($settings);
+        }
+      }
+    }
+  }
+}
+
+@mixin create-flex-block($structure, $class-selector-name) {
+  .#{$class-selector-name} {
+    @include create-flex-items($items-map: $structure);
+
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

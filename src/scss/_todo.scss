@@ -1,0 +1,66 @@
+$todo-item-width: (100% / 3);
+$todo-item-width-up: (100% / 4);
+
+$todo-structure: (
+        '0px': (
+                title: (
+                        head: (display: none, font-weight: 700, min-width: $todo-item-width),
+                        data: (min-width: $todo-item-width)
+                ),
+                deadline: (
+                        head: (display: none, font-weight: 700, min-width: $todo-item-width),
+                        data: (min-width: $todo-item-width)
+
+                ),
+                description: (
+                        head: (display: none, font-weight: 700, min-width: $todo-item-width),
+                        data: (display: none, min-width: $todo-item-width)
+                ),
+                status: (
+                        head: (display: none, font-weight: 700, min-width: $todo-item-width),
+                        data: (min-width: $todo-item-width)
+                )
+        ),
+
+        '400px': (
+                title: (
+                        head: (display: inherit),
+                        data: ()
+                ),
+                deadline: (
+                        head: (display: inherit),
+                        data: ()
+
+                ),
+                description: (
+                        head: (),
+                        data: (display: inherit, flex-basis: 100%, order: 4)
+                ),
+                status: (
+                        head: (display: inherit),
+                        data: ()
+                )
+        ),
+
+        '700px': (
+                title: (
+                        head: (min-width: auto),
+                        data: (min-width: auto)
+                ),
+                deadline: (
+                        head: (min-width: auto),
+                        data: (min-width: auto)
+
+                ),
+                description: (
+                        head: (flex-basis: 40%, display: inherit),
+                        data: (flex-basis: 40%, order: inherit)
+                ),
+                status: (
+                        head: (min-width: auto),
+                        data: (min-width: auto)
+                )
+        )
+);
+
+@include create-flex-block($todo-structure, 'todo');
