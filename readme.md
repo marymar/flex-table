@@ -1,9 +1,10 @@
 # Flex Table
 
-Just a little flex example, where data is stored in table
-like order for bigger viewports.
-In smaller vieports widths columns header can be seperatly configured
- and the same is true for the data itself.
+[experimental]
+
+Just a little flex example, where data is stored in table- like order for bigger viewports.
+But in smaller vieports widths columns header can be seperatly configured
+ and for the data rows too.
  
 The configuration is done by the mixin `create-flex-block`.
 It expects a map with the structure of the flex 'table' for
