@@ -19,7 +19,7 @@ Both examples are available in the index.htm
 
 ## Build
  
-Build the project with `pm install`
+Build the project with `npm install`
 
 ## Run
 
